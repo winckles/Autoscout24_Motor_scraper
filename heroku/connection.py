@@ -6,11 +6,11 @@ def connect_heroku():
     """ Connects to the heroku database """
 
     connection = psycopg2.connect(
-        database=os.getenv('DATABASE'),
-        user=os.getenv('USER'),
-        password=os.getenv('PASSWORD'),
-        host=os.getenv('HOST'),
-        port=os.getenv('PORT')
+        database=os.environ['DATABASE'],
+        user=os.environ['USER'],
+        password=os.environ['PASSWORD'],
+        host=os.environ['HOST'],
+        port=os.environ['PORT'],
     )
 
     return connection
