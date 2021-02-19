@@ -7,8 +7,8 @@ from data import pipeline, model
 import heroku.connection as con
 import heroku.database as db
 
-SAVED_MODEL_PATH = "../data/predict.pkl"
-SAVED_DATA_PATH = "../data/data.csv"
+SAVED_MODEL_PATH = "data/predict.pkl"
+SAVED_DATA_PATH = "data/data.csv"
 
 
 def check_data() -> str:
