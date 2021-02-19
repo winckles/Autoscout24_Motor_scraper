@@ -50,7 +50,7 @@ def __process_input(request_data: str) -> np.array:
 def home_view():
     """
     This function returns the home view when starting the app
-    :return: html
+    :return: html alallalalalala
     """
     return "<h1>Motor price predictor</h1>" \
            "<br>" \
@@ -73,8 +73,8 @@ def predict() -> str:
         return json.dumps({"error": "PREDICTION FAILED"}), 400
 
     db.insert_into_table(
-        json.dumps({"input": input_params}),
-        json.dumps({"Predicted price": prediction[0]})
+        json.dumps({"input": input_params.tolist()}),
+        json.dumps({"Predicted price": int(prediction[0])})
     )
 
     return json.dumps({"predicted_class": int(prediction[0])})

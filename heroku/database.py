@@ -5,7 +5,8 @@ import os
 def connect_heroku():
     """ Connects to the heroku database """
 
-    connection = psycopg2.connect(os.environ['DATABASE_URL'])
+    # connection = psycopg2.connect(os.environ['DATABASE_URL'])
+    connection = psycopg2.connect('postgres://rcdpozbtfmhiqm:39011b4e67c734179fcb231dc2d4dd14de232097833134f5eff5ac02a6285d7b@ec2-54-198-73-79.compute-1.amazonaws.com:5432/dakf5mq8ckvgdo')
 
     return connection
 
@@ -33,7 +34,7 @@ def insert_into_table(inputs, outputs):
 
     cur.execute(f"""
     INSERT INTO predictions(inputs, outputs) 
-    VALUES('{inputs}'), ('{outputs}');
+    VALUES('{inputs}', '{outputs}');
     """)
 
     connected.commit()
