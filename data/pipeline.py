@@ -1,10 +1,10 @@
-from package import MotorScraper
+import package
 import pandas as pd
 
 
 def get_data() -> pd.DataFrame:
-    list_try = MotorScraper().collect_urls(20, ['kawasaki', 'honda', 'bmw', 'yamaha', 'ducati'])
-    df = MotorScraper().collect_info(list_try)
+    list_try = package.MotorScraper().collect_urls(20, ['kawasaki', 'honda', 'bmw', 'yamaha', 'ducati'])
+    df = package.MotorScraper().collect_info(list_try)
     return df
 
 
