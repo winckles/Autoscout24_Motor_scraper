@@ -25,4 +25,3 @@ threadpoolctl==2.1.0
 urllib3==1.26.3
 webdriver-manager==3.3.0
 Werkzeug==1.0.1
-motor-scraper==0.0.3

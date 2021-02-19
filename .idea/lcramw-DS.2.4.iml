@@ -9,7 +9,7 @@
   </component>
   <component name="PackageRequirementsSettings">
     <option name="requirementsPath" value="$MODULE_DIR$/requirements.txt" />
-    <option name="versionSpecifier" value="Don't specify version" />
+    <option name="versionSpecifier" value="Greater or equal (&gt;=x.y.z)" />
     <option name="keepMatchingSpecifier" value="false" />
   </component>
 </module>
