@@ -3,12 +3,21 @@ import pandas as pd
 
 
 def get_data() -> pd.DataFrame:
+    """
+
+    :return:
+    """
     list_try = MotorScraper().collect_urls(20, ['kawasaki', 'honda', 'bmw', 'yamaha', 'ducati'])
     df = MotorScraper().collect_info(list_try)
     return df
 
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+
+    :param df:
+    :return:
+    """
     for column in df.columns:
         df[column] = df[column].str.replace('.', '')
         df[column] = df[column].str.replace('\n', '')
@@ -24,12 +33,22 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def set_data_types(df: pd.DataFrame) -> pd.DataFrame:
+    """
+
+    :param df:
+    :return:
+    """
     df[["price", "mileage", "power", "cc", "year"]] = \
         df[["price", "mileage", "power", "cc", "year"]].apply(pd.to_numeric)
     return df
 
 
 def preprocessing(df: pd.DataFrame) -> pd.DataFrame:
+    """
+
+    :param df:
+    :return:
+    """
     df.dropna(subset=['brand'], inplace=True)
     df.new.fillna("Not defined", inplace=True)
     df['mileage'][df.new == "Nieuw"] = 0
@@ -43,10 +62,15 @@ def preprocessing(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_csv(df: pd.DataFrame):
+    """ """
     df.to_csv('data.csv', index=False)
 
 
 def pipeline() -> str:
+    """
+
+    :return:
+    """
     df = get_data()
     cleaned_data = clean_data(df)
     final_df = set_data_types(cleaned_data)

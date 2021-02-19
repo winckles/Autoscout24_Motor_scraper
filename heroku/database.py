@@ -3,10 +3,12 @@ import os
 
 
 def connect_heroku():
-    """ Connects to the heroku database """
+    """
+    Connects to the heroku database
+    :return: connection
+    """
 
-    # connection = psycopg2.connect(os.environ['DATABASE_URL'])
-    connection = psycopg2.connect('postgres://rcdpozbtfmhiqm:39011b4e67c734179fcb231dc2d4dd14de232097833134f5eff5ac02a6285d7b@ec2-54-198-73-79.compute-1.amazonaws.com:5432/dakf5mq8ckvgdo')
+    connection = psycopg2.connect(os.environ['DATABASE_URL'])
 
     return connection
 
@@ -28,7 +30,7 @@ def create_table():
 
 
 def insert_into_table(inputs, outputs):
-    """ Inserts a dataframe into the SQL tables in Heroku"""
+    """ Inserts the predictions into the predictions table in Heroku"""
     connected = connect_heroku()
     cur = connected.cursor()
 
@@ -54,8 +56,8 @@ def drop_table(table_name):
 
 def select_from_table() -> list:
     """
-    Selects 10 most recent requests and responses from the database
-    :return: list of 10 most recent requests and responses from the database
+    Retrieves the last 10 records from the heroku database
+    :return: 10 last records
     """
     connected = connect_heroku()
     cur = connected.cursor()
