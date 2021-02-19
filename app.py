@@ -50,7 +50,7 @@ def __process_input(request_data: str) -> np.array:
 def home_view():
     """
     This function returns the home view when starting the app
-    :return: html alallalalalala
+    :return: html
     """
     return "<h1>Motor price predictor</h1>" \
            "<br>" \
