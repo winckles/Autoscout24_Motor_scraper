@@ -72,12 +72,12 @@ def predict() -> str:
     except:
         return json.dumps({"error": "PREDICTION FAILED"}), 400
 
-    # db.insert_into_table(
-    #     json.dumps({"input": input_params}),
-    #     json.dumps({"Predicted price": prediction[0]})
-    # )
+    db.insert_into_table(
+        json.dumps({"input": input_params}),
+        json.dumps({"Predicted price": prediction[0]})
+    )
 
-    return json.dumps({"predicted_class": prediction[0]})
+    return json.dumps({"predicted_class": int(prediction[0])})
 
 
 @app.route("/retrieve", methods=["GET"])
