@@ -15,7 +15,7 @@ def check_data() -> str:
         print('data exists')
     else:
         print('data does not exist, scraping data')
-        # pipeline.pipeline()
+        pipeline.pipeline()
     return "Data check done"
 
 
