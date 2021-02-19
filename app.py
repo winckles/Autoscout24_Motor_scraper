@@ -3,8 +3,7 @@ import json
 from flask import Flask, request
 import numpy as np
 from os import path
-from data import model
-# from data import pipeline, model
+from data import pipeline, model
 import heroku.database as db
 
 SAVED_MODEL_PATH = "data/predict.pkl"
