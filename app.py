@@ -3,8 +3,8 @@ import json
 from flask import Flask, request
 import numpy as np
 from os import path
-from data import pipeline, model
-import heroku.connection as con
+from data import model
+# from data import pipeline, model
 import heroku.database as db
 
 SAVED_MODEL_PATH = "data/predict.pkl"
@@ -31,8 +31,8 @@ def check_model() -> str:
 
 check_data()
 check_model()
-connected = con.connect_heroku()
-db.create_table(connected)
+db.create_table()
+print('connected and table created')
 
 classifier = pickle.load(open(SAVED_MODEL_PATH, "rb"))
 app = Flask(__name__)
