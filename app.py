@@ -66,9 +66,14 @@ def predict() -> str:
     input_params = __process_input(request.data)
     try:
         prediction = classifier.predict(input_params)
-        db.insert_into_table()
+
     except (ValueError, RuntimeError, TypeError, NameError, ZeroDivisionError):
         return f'{json.dumps({"error": "PREDICTION FAILED"}), 400}'
+
+    db.insert_into_table(
+        json.dumps({"input": input_params}),
+        json.dumps({"Predicted price": prediction[0]})
+    )
 
     return json.dumps({"predicted_class": int(prediction[0])})
 
@@ -79,4 +84,4 @@ def retrieve() -> str:
     Selects last 10 records from the request-response database
     :return: last 10 requests and responses.
     """
-    return json.dumps({"Last 10 records": db.select_from_table()})
+    return json.dumps({"retrieved records": db.select_from_table()})
