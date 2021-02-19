@@ -67,8 +67,10 @@ def predict() -> str:
     try:
         prediction = classifier.predict(input_params)
 
-    except (ValueError, RuntimeError, TypeError, NameError, ZeroDivisionError):
-        return f'{json.dumps({"error": "PREDICTION FAILED"}), 400}'
+    # except (ValueError, RuntimeError, TypeError, NameError, ZeroDivisionError):
+    #     return f'{json.dumps({"error": "PREDICTION FAILED"}), 400}'
+    except:
+        return json.dumps({"error": "PREDICTION FAILED"}), 400
 
     db.insert_into_table(
         json.dumps({"input": input_params}),
