@@ -11,7 +11,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib==1.0.1
 MarkupSafe==1.1.1
-motor-scraper==0.0.3
 numpy>=1.20.1
 pandas>=1.2.2
 python-dateutil==2.8.1
@@ -26,3 +25,4 @@ threadpoolctl==2.1.0
 urllib3==1.26.3
 webdriver-manager==3.3.0
 Werkzeug==1.0.1
+motor-scraper==0.0.3
