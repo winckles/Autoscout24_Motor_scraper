@@ -2,7 +2,11 @@
 
 With this python code you can make POST requests to https://motorscraper.herokuapp.com/predict in a flask app to get predictions from a trained model on the prices for motorcycles form autoscout.nl.
 
+**WHY DO WE NEED PRICE PREDICTIONS FOR MOTORSCYCLES?**
 
+When buying second hand items from the market, a problem known in economics as 'the lemons problem' arises. The lemons problem refers to issues that arise regarding the value of an investment or product due to asymmetric information possessed by the buyer and the seller. 
+
+To make asymmetric information less of an issue, this project takes all the info from a listing on second hand car/motor website www.autoscout.nl and predicts the price that it should be. If the price predicted is lower than the actual price of the listing it could be classified as a lemon.  
 
 Table of content
 * [Installation](#installation)
