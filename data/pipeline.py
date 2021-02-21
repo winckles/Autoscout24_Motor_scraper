@@ -4,8 +4,8 @@ import pandas as pd
 
 def get_data() -> pd.DataFrame:
     """
-
-    :return:
+    Get data in a DataFrame by using the MotorScraper package to scrape autoscout.nl
+    :return: pd.DataFrame
     """
     list_try = MotorScraper().collect_urls(20, ['kawasaki', 'honda', 'bmw', 'yamaha', 'ducati'])
     df = MotorScraper().collect_info(list_try)
@@ -14,9 +14,9 @@ def get_data() -> pd.DataFrame:
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-
-    :param df:
-    :return:
+    Clean the data
+    :param df: the DataFrame to be cleaned
+    :return: pd.DataFrame
     """
     for column in df.columns:
         df[column] = df[column].str.replace('.', '')
@@ -34,9 +34,9 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
 def set_data_types(df: pd.DataFrame) -> pd.DataFrame:
     """
-
-    :param df:
-    :return:
+    Set data types of the dataframe
+    :param df: The dataframe to be changed
+    :return: pd.DataFrame
     """
     df[["price", "mileage", "power", "cc", "year"]] = \
         df[["price", "mileage", "power", "cc", "year"]].apply(pd.to_numeric)
@@ -45,9 +45,9 @@ def set_data_types(df: pd.DataFrame) -> pd.DataFrame:
 
 def preprocessing(df: pd.DataFrame) -> pd.DataFrame:
     """
-
-    :param df:
-    :return:
+    Handle null values and prepare the dataframe for the model
+    :param df: the dataframe to be preprocessed
+    :return: pd.DataFrame
     """
     df.dropna(subset=['brand'], inplace=True)
     df.new.fillna("Not defined", inplace=True)
@@ -62,14 +62,14 @@ def preprocessing(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def write_csv(df: pd.DataFrame):
-    """ """
+    """ Write the dataframe to a csv file """
     df.to_csv('data.csv', index=False)
 
 
 def pipeline() -> str:
     """
-
-    :return:
+    Run all the tasks in the pipeline to process the data
+    :return: String
     """
     df = get_data()
     cleaned_data = clean_data(df)

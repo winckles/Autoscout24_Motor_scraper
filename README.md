@@ -1,6 +1,6 @@
 ## 2.3 Project
 
-With this python code you can make POST requests to https://peaceful-wave-10456.herokuapp.com/ in a flask app to get predictions from a trained model on the boston data from sklearn.
+With this python code you can make POST requests to https://motorscraper.herokuapp.com/predict in a flask app to get predictions from a trained model on the prices for motorcycles form autoscout.nl.
 
 
 
@@ -19,7 +19,11 @@ To run the code please take a look at the following instructions
 
 2. Run `flask run <main.py> --host='localhost' --port=9000` in the terminal
 
-3. Go to `http://127.0.0.1:9000/predict` in a browser or postman and make requests! 
+3. Make requests with the requests library like so:
+   
+```
+requests.post("http://localhost:9000/predict", data=json.dumps({"inputs": [4.60000000e+04, 2.50000000e+01, 1.98500000e+03, 7.86409627e+02,0.00000000e+00, 0.00000000e+00, 0.00000000e+00, 1.00000000e+00,0.00000000e+00, 1.00000000e+00, 0.00000000e+00, 0.00000000e+00,0.00000000e+00, 0.00000000e+00, 0.00000000e+00]}))
+```
 
 
 ### Getting Started
