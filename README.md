@@ -1,4 +1,4 @@
-## 2.3 Project
+## Autoscout24 Motor Scraper 
 
 With this python code you can make POST requests to https://motorscraper.herokuapp.com/predict in a flask app to get predictions from a trained model on the prices for motorcycles form autoscout.nl.
 
